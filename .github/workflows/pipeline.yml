@@ -23,13 +23,6 @@ jobs:  # Define os jobs que serão executados como parte deste workflow.
         run: | 
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
-      
-      # 5. Faz o upload do relatório de cobertura gerado pelo JaCoCo como artefato
-      - name: Upload JaCoCo coverage report 
-        uses: actions/upload-artifact@v3 # Ação que faz o upload do relatório como artefato do GitHub
-        with:
-          name: jacoco-report # Nome do artefato que será enviado (o relatório de cobertura)
-          path: target/site/jacoco
 
   code-analisys:
     runs-on: ubuntu-latest
